@@ -14,17 +14,17 @@ se_ejecuta = True
 
 #Titulo e icono 
 pygame.display.set_caption('Invasion Espacial')
-icono = pygame.image.load('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\nasa.png')
+icono = pygame.image.load('nasa.png')
 pygame.display.set_icon(icono)
-fondo = pygame.image.load('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\Fondo.jpg')
+fondo = pygame.image.load('Fondo.jpg')
 
 # Agregar musica
-mixer.music.load('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\stranger-things.mp3')
+mixer.music.load('stranger-things.mp3')
 mixer.music.set_volume(0.6)
 mixer.music.play(-1)
 
 # Varibles del Jugador
-img_jugador = pygame.image.load('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\nave-espacial.png')
+img_jugador = pygame.image.load('nave-espacial.png')
 jugador_x = 368
 jugador_y = 500
 jugadorx_cambio = 0
@@ -38,14 +38,14 @@ enemigo_y_cambio = []
 cantidad_enemigos = 8
 
 for e in range(cantidad_enemigos):
-    img_enemigo.append(pygame.image.load('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\ovni.png'))
+    img_enemigo.append(pygame.image.load('ovni.png'))
     enemigo_x.append(random.randint(0, 736))
     enemigo_y.append(random.randint(50, 200))
     enemigo_x_cambio.append(0.3)
     enemigo_y_cambio.append(50)
 
 # Variables de la bala
-img_bala = pygame.image.load('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\hotdog.png')
+img_bala = pygame.image.load('hotdog.png')
 bala_x = 0
 bala_y = 500
 bala_x_cambio = 0
@@ -59,12 +59,12 @@ def mostrar_puntaje(x, y):
 
 #Puntaje
 puntaje = 0
-fuente = pygame.font.Font('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\techno_hideo.ttf', 32)
+fuente = pygame.font.Font('techno_hideo.ttf', 32)
 texto_x = 10
 texto_y = 10
 
 # Texto final de juego 
-fuente_final = pygame.font.Font('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\techno_hideo.ttf', 40)
+fuente_final = pygame.font.Font('techno_hideo.ttf', 40)
 
 def texto_final():
     mi_fuente_final = fuente_final.render('GAME OVER', True, (255,255,255))
@@ -117,7 +117,7 @@ while se_ejecuta:
             if evento.key == pygame.K_RIGHT:
                 jugadorx_cambio = 0.3
             if evento.key == pygame.K_SPACE:
-                sonido_bala = mixer.Sound('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\disparo.mp3')
+                sonido_bala = mixer.Sound('disparo.mp3')
                 sonido_bala.play()
                 if not bala_visible:
                     bala_x = jugador_x
@@ -160,7 +160,7 @@ while se_ejecuta:
         # Colision
         colision = hay_colision(enemigo_x[e], enemigo_y[e], bala_x, bala_y)
         if colision:
-            sonido_colision = mixer.Sound('C:\\Users\\yo_al\\Documentos\\PythonTotal\\python\\Dia10\\roblox-death.mp3')
+            sonido_colision = mixer.Sound('roblox-death.mp3')
             sonido_colision.play()
             bala_y = 500
             bala_visible = False
